@@ -2,11 +2,18 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Inter } from '@next/font/google'
+import { useRouter } from 'next/router'
 import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const router = useRouter();
+
+  const navigateToGallery = () => {
+    router.push('/gallery');
+  }
+
   return (
     <>
       <Head>
@@ -25,6 +32,9 @@ export default function Home() {
           </li>
           <li>
             <Link href="/blog">Blogs</Link>
+          </li>
+          <li>
+            <button onClick={navigateToGallery}>Gallery</button>
           </li>
         </ul>
         <div className={styles.description}>
