@@ -23,6 +23,9 @@ export default function Home() {
           <li>
             <Link href="/contact">Contact</Link>
           </li>
+          <li>
+            <Link href="/blog">Blogs</Link>
+          </li>
         </ul>
         <div className={styles.description}>
           <p>
