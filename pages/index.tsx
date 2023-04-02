@@ -34,6 +34,9 @@ export default function Home() {
             <Link href="/blog">Blogs</Link>
           </li>
           <li>
+            <Link href="/user">Users</Link>
+          </li>
+          <li>
             <button onClick={navigateToGallery}>Gallery</button>
           </li>
         </ul>
