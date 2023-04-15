@@ -13,6 +13,7 @@ export default function UserSlug({ data }: any) {
             <main>
                 <h1 style={{ marginBottom: 20 }}>User: {data.name} ({data.username})</h1>
                 <p style={{ marginBottom: 20 }}>Email: {data.email}</p>
+                <p style={{ marginBottom: 20 }}>Phone: {data.phone}</p>
                 <label>Address:</label>
                 <pre>
                     {JSON.stringify(data.address, null, 2)}
@@ -53,5 +54,4 @@ export async function getStaticProps(context: any) {
             data,
         },
     }
-
 }

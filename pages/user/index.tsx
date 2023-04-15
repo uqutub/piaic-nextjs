@@ -4,19 +4,20 @@ import React, { useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchUsers, increment } from '@/store/action/user'
+import { fetchUsers, getPosts, increment, decrement } from '@/store/action/user'
 import { AppDispatch } from '@/store/store'
 
 export default function User({ users }: { users: any[] }) {
 
-    const { entities, loading, counter } = useSelector((state: any) => state.user)
+    const { entities, loading, counter, postLoader } = useSelector((state: any) => state.user)
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
         dispatch(fetchUsers())
+        // dispatch(getPosts())
     }, [])
 
-    if (loading) return <div>Loading...</div>
+    if (loading) return <h1>Loading...</h1>
 
     return (
         <>
@@ -33,9 +34,16 @@ export default function User({ users }: { users: any[] }) {
                     ))}
                 </ul>
 
+                {
+                    postLoader ? <h1>Posts Loading...</h1> : (
+                        <button onClick={() => dispatch(getPosts())}>Get Posts</button>
+                    )
+                }
+
                 <div style={{ background: 'grey', marginTop: 20, padding: 10 }}>
                     <h3>Counter Reducer Demo: {counter}</h3>
                     <button onClick={() => dispatch(increment())}>Increment</button>
+                    <button onClick={() => dispatch(decrement())}>Decrement</button>
                 </div>
             </main>
         </>

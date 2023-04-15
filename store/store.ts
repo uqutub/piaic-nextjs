@@ -6,6 +6,11 @@ export function makeStore() {
   return configureStore({
     reducer: {
         user: userReducer,
+        // payroll: payrollReducer,
+        // hr: hrReducer,
+        // product: productReducer,
+        // cart: cartReducer,
+        // order: orderReducer,
     },
   })
 }
